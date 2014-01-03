@@ -1,0 +1,23 @@
+{
+  "name": "bittorrent-dht",
+  "version": "0.0.0",
+  "description": "Standalone BitTorrent DHT (BEP0005)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deoxxa/bittorrent-dht.git"
+  },
+  "keywords": [
+    "bittorrent",
+    "dht"
+  ],
+  "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/deoxxa/bittorrent-dht/issues"
+  },
+  "dependencies": {
+    "bencode-stream": "0.0.9",
+    "async": "~0.2.9"
+  }
+}
