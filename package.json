@@ -2,7 +2,7 @@
   "name": "bittorrent-dht",
   "version": "0.0.0",
   "description": "A middle-level library for interacting with the BitTorrent DHT network",
-  "main": "index.js",
+  "main": "lib/dht.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/deoxxa/bittorrent-dht.git"

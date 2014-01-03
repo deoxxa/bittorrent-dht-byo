@@ -4,7 +4,7 @@ var crypto = require("crypto"),
     dgram = require("dgram"),
     fs = require("fs");
 
-var DHT = require("./lib/dht");
+var DHT = require("./");
 
 var socket = dgram.createSocket("udp4");
 socket.bind(40000);
