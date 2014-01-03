@@ -1,11 +1,11 @@
 {
-  "name": "bittorrent-dht",
+  "name": "bittorrent-dht-byo",
   "version": "0.0.1",
-  "description": "A middle-level library for interacting with the BitTorrent DHT network",
+  "description": "A middle-level library for interacting with the BitTorrent DHT network. Bring your own transport layer and peer logic.",
   "main": "lib/dht.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/deoxxa/bittorrent-dht.git"
+    "url": "git://github.com/deoxxa/bittorrent-dht-byo.git"
   },
   "keywords": [
     "bittorrent",
@@ -14,7 +14,7 @@
   "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/deoxxa/bittorrent-dht/issues"
+    "url": "https://github.com/deoxxa/bittorrent-dht-byo/issues"
   },
   "dependencies": {
     "bencode-stream": "0.0.9",

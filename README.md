@@ -1,7 +1,8 @@
-bittorrent-dht
-==============
+bittorrent-dht-byo
+==================
 
-A middle-level library for interacting with the BitTorrent DHT network
+A middle-level library for interacting with the BitTorrent DHT network. Bring
+your own transport layer and peer logic.
 
 Overview
 --------
