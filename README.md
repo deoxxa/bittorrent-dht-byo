@@ -197,6 +197,170 @@ Parameters
   * **error** - a `DHTError` object; the error content
   * **from** - an object; the sender of the response (*not* a `DHTNode` object!)
 
+### DHTNode (constructor)
+
+```
+new DHT.Node(options);
+```
+
+This object represents a node that the DHT client knows about. It emits some
+events when important things change.
+
+```
+var node = new DHT.Node({
+  nodeId: Buffer(...),
+  host: "1.2.3.4",
+  port: 12345,
+  firstSeen: 1234567890,
+  lastQuery: 1234567890,
+  lastResponse: 1234567890,
+  token: Buffer(...),
+});
+```
+
+Arguments
+
+* **options** - an object specifying options
+  * **nodeId** - a buffer; the node's ID (optional, recommended)
+  * **host** - a string; the ip of the node
+  * **port** - a number; the port of the node
+  * **firstSeen** - a unix timestamp; first seen time (optional)
+  * **lastQuery** - a unix timestamp; last received query time (optional)
+  * **lastResponse** - a unix timestamp; last received response time (optional)
+  * **token** - a buffer; the write token for the node (optional)
+
+### DHTNode.toJSON
+
+```js
+toJSON();
+```
+
+Does what it sounds like. Turns the node into an object that's nicely
+serialisable.
+
+```js
+var serialised = JSON.stringify(node);
+```
+
+Returns: object
+
+### DHTNode.toPeerInfo
+
+```js
+toPeerInfo();
+```
+
+Get the "compact peer info" representation of the node.
+
+```js
+var peerInfo = node.toPeerInfo();
+```
+
+Returns: buffer
+
+### DHTNode.toNodeInfo
+
+```js
+toNodeInfo();
+```
+
+Get the "compact node info" representation of the node.
+
+```js
+var nodeInfo = node.toNodeInfo();
+```
+
+Returns: buffer
+
+### DHTNode.setToken
+
+```js
+setToken(token);
+```
+
+Set the write token for the node. Causes the node to emit a `token` event.
+
+```js
+setToken(Buffer("asdfqwer"));
+```
+
+Arguments
+
+* **token** - a buffer; the write token
+
+### DHTNode.setStatus
+
+```js
+setStatus(status);
+```
+
+Set the status of the node. Causes the node to emit a `status` event if it
+changes.
+
+```js
+node.setStatus("good");
+```
+
+Arguments
+
+* **status** - a string; the status
+
+### DHTNode.setLastQuery
+
+```js
+setLastQuery(time);
+```
+
+Set the last query time of the node. May cause the node to change its status.
+
+```js
+node.setLastQuery(1234567890);
+```
+
+Arguments
+
+* **time** - a number; the last query time
+
+### DHTNode.setLastResponse
+
+```js
+setLastResponse(time);
+```
+
+Set the last response time of the node. May cause the node to change its status.
+
+```js
+node.setLastResponse(1234567890);
+```
+
+Arguments
+
+* **time** - a number; the last response time
+
+### DHTNode.incrementFailures
+
+```js
+incrementFailures();
+```
+
+Increment the failure count of the node. May cause the node to change its status.
+
+```js
+node.incrementFailures();
+```
+
+### DHTNode.resetFailures
+
+```js
+resetFailures();
+```
+
+Reset the failure count of the node to 0.
+
+```js
+node.resetFailures();
+```
+
 License
 -------
 
