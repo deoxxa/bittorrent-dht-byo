@@ -1,7 +1,7 @@
 {
   "name": "bittorrent-dht",
   "version": "0.0.0",
-  "description": "Standalone BitTorrent DHT (BEP0005)",
+  "description": "A middle-level library for interacting with the BitTorrent DHT network",
   "main": "index.js",
   "repository": {
     "type": "git",
