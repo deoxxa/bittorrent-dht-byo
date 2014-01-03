@@ -124,7 +124,7 @@ Arguments
     found (optional, default 1)
 * **cb** - a function that will be called upon completion or failure
 
-### DHT#outgoing
+### DHT.on("outgoing")
 
 ```js
 on("outgoing", function(message, node) { ... });
@@ -143,7 +143,7 @@ Parameters
 * **message** - a buffer containing the serialised message
 * **node** - a `DHTNode` object; the intended recipient of the message
 
-### DHT#query
+### DHT.on("query")
 
 ```js
 on("query", function(query) { ... });
@@ -165,7 +165,7 @@ Parameters
   * **node** - a `DHTNode` object; the sender of the query
   * **parameters** - an object; named parameters for the query
 
-### DHT#unassociatedResponse
+### DHT.on("unassociatedResponse")
 
 ```js
 on("unassociatedResponse", function(response) { ... });
@@ -188,7 +188,7 @@ Parameters
   * **parameters** - an object; named parameters of the response
   * **from** - an object; the sender of the response (*not* a `DHTNode` object!)
 
-### DHT#unassociatedError
+### DHT.on("unassociatedError")
 
 ```js
 on("unassociatedError", function(error) { ... });
