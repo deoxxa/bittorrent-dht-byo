@@ -12,19 +12,6 @@ and serialise messages, keep track of nodes and their health, correlate queries
 and responses, and (currently quite badly) traverse the network to find peers
 for a specific info_hash.
 
-Usage
------
-
-```js
-var Bitfield = require("opaque-bitfield");
-
-var bf = new Bitfield();
-
-bf.set(0, true);
-
-console.log(bf.get(0));
-```
-
 API
 ---
 
