@@ -108,7 +108,7 @@ dht.on("query", function(query) {
 
 // lol, ghetto i know
 setInterval(function() {
-  fs.writeFileSync("./nodes.json", JSON.stringify({nodes: dht.nodes}, null, 2));
+  fs.writeFileSync("./nodes.json", JSON.stringify({nodes: dht.nodes.toArray()}, null, 2));
 }, 5000);
 
 var initiateSearch = function initiateSearch() {
@@ -142,7 +142,7 @@ if (dht.countNodes()) {
     console.log("bootstrapped successfuly, we now have %d nodes", dht.countNodes());
 
     // dump the nodes out straight away
-    fs.writeFileSync("./nodes.json", JSON.stringify({nodes: dht.nodes}, null, 2));
+    fs.writeFileSync("./nodes.json", JSON.stringify({nodes: dht.nodes.toArray()}, null, 2));
 
     initiateSearch();
   });
