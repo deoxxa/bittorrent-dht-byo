@@ -13,7 +13,7 @@ var dht = new DHT({
   nodes: fs.existsSync("./nodes.json") && require("./nodes.json").nodes,
 });
 
-console.log("starting up; nodeId is %s and we have %d nodes", dht.nodeId.toString("hex"), dht.countNodes());
+console.log("starting up; id is %s and we have %d nodes", dht.id.toString("hex"), dht.countNodes());
 
 socket.on("message", function(message, from) {
   // kind of interesting to see
@@ -43,10 +43,10 @@ dht.on("outgoing", function(message, node) {
 
 dht.on("query", function(query) {
   if (query.method.toString() === "ping") {
-    console.log("responding to ping: %s from %s", query.id.toString("hex"), query.node.nodeId.toString("hex"));
+    console.log("responding to ping: %s from %s", query.id.toString("hex"), query.node.id.toString("hex"));
 
     var response = {
-      id: dht.nodeId,
+      id: dht.id,
     };
 
     return this.respondTo(query, response, null, function(err) {
@@ -57,10 +57,10 @@ dht.on("query", function(query) {
   }
 
   if (query.method.toString() === "find_node") {
-    console.log("responding to find_node: %s from %s for %s", query.id.toString("hex"), query.node.nodeId.toString("hex"), query.parameters.target.toString("hex"));
+    console.log("responding to find_node: %s from %s for %s", query.id.toString("hex"), query.node.id.toString("hex"), query.parameters.target.toString("hex"));
 
     var response = {
-      id: dht.nodeId,
+      id: dht.id,
       nodes: Buffer(0),
     };
 
@@ -72,10 +72,10 @@ dht.on("query", function(query) {
   }
 
   if (query.method.toString() === "get_peers") {
-    console.log("responding to get_peers: %s from %s for %s", query.id.toString("hex"), query.node.nodeId.toString("hex"), query.parameters.info_hash.toString("hex"));
+    console.log("responding to get_peers: %s from %s for %s", query.id.toString("hex"), query.node.id.toString("hex"), query.parameters.info_hash.toString("hex"));
 
     var response = {
-      id: dht.nodeId,
+      id: dht.id,
       token: crypto.randomBytes(20),
       nodes: Buffer(0),
     };
@@ -95,7 +95,7 @@ dht.on("query", function(query) {
     });
   }
 
-  console.log("responding with error to %s: %s from %s", query.method.toString(), query.id.toString("hex"), query.node.nodeId.toString("hex"))
+  console.log("responding with error to %s: %s from %s", query.method.toString(), query.id.toString("hex"), query.node.id.toString("hex"))
 
   var error = DHT.Error(204, "method not implemented");
 
