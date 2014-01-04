@@ -1,6 +1,6 @@
 {
   "name": "bittorrent-dht-byo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A middle-level library for interacting with the BitTorrent DHT network. Bring your own transport layer and peer logic.",
   "main": "lib/dht.js",
   "repository": {
